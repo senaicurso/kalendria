@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kalendria</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <img src="image/logo2.png" alt="Kalendria" class="logo">
+    </header>
+
+    <main class="container">
+      <div>
+        <div class="calendar-header">
+          <button id="prev-month" class="nav-btn">&lt;</button>
+          <span id="current-month"></span>
+          <button id="next-month" class="nav-btn">&gt;</button>
+        </div>
+
+        <div class="weekdays">
+          <div>Dom</div>
+          <div>Seg</div>
+          <div>Ter</div>
+          <div>Qua</div>
+          <div>Qui</div>
+          <div>Sex</div>
+          <div>Sáb</div>
+        </div>
+
+        <div id="calendar-grid" class="calendar-grid"></div>
+      </div>
+
+      <aside class="schedule-panel">
+        <div class="schedule-header">
+          <h2>Eventos em <span id="selected-date-display"></span></h2>
+        </div>
+
+        <ul id="events-list" class="hours-list"></ul>
+
+        <div class="buttons-group">
+  <button id="new-event-btn" class="primary">Adicionar Evento</button>
+  
+  <!-- ✅ Botão de voz animado -->
+  <button id="voice-event-btn" class="voice-btn">
+    🎤 <span id="voice-indicator" class="indicator"></span> Criar evento por voz
+  </button>
+</div>
+
+<p id="voice-status" class="voice-status">Clique no microfone e diga: “Reunião amanhã às 14 horas”</p>
+      </aside>
+    </main>
+  </div>
+
+  <!-- Modal -->
+  <div id="modal" class="modal hidden">
+    <div class="modal-card">
+      <button id="close-modal-btn" class="close-btn" title="Fechar">&times;</button>
+      <h3>Novo Evento</h3>
+
+      <label for="event-title">Título</label>
+      <input id="event-title" type="text" placeholder="Nome do evento" />
+
+      <label for="event-date">Data</label>
+      <input id="event-date" type="date" />
+
+      <label for="event-time">Hora</label>
+      <input id="event-time" type="time" />
+
+      <label for="event-notify">Notificar antes (minutos)</label>
+      <input id="event-notify" type="number" min="0" placeholder="Ex: 10" />
+
+      <div class="modal-actions">
+        <button id="cancel-event-btn" class="ghost">Cancelar</button>
+        <button id="save-event-btn" class="primary">Salvar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Alerta -->
+  <div id="alert" class="alert hidden"></div>
+
+  <!-- Som de lembrete -->
+  <audio id="alert-sound" src="https://actions.google.com/sounds/v1/alarms/alarm_clock.ogg"></audio>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
