@@ -16,26 +16,33 @@
     </header>
 
     <main class="container">
-      <div>
-        <div class="calendar-header">
-          <button id="prev-month" class="nav-btn">&lt;</button>
-          <span id="current-month"></span>
-          <button id="next-month" class="nav-btn">&gt;</button>
+      <!-- ===== CALENDÁRIO COMPLETO ===== -->
+      <div class="calendar-container">
+
+        <div class="calendar-content">
+          <div class="calendar-header inside">
+            <button id="prev-month" class="nav-btn">&lt;</button>
+            <span id="current-month"></span>
+            <button id="next-month" class="nav-btn">&gt;</button>
+          </div>
+
+          <div id="calendar-grid" class="calendar-grid">
+            <div class="weekday">Dom</div>
+            <div class="weekday">Seg</div>
+            <div class="weekday">Ter</div>
+            <div class="weekday">Qua</div>
+            <div class="weekday">Qui</div>
+            <div class="weekday">Sex</div>
+            <div class="weekday">Sáb</div>
+          </div>
+
         </div>
 
-        <div class="weekdays">
-          <div>Dom</div>
-          <div>Seg</div>
-          <div>Ter</div>
-          <div>Qua</div>
-          <div>Qui</div>
-          <div>Sex</div>
-          <div>Sáb</div>
-        </div>
-
-        <div id="calendar-grid" class="calendar-grid"></div>
       </div>
 
+      <!-- ================================ -->
+
+      <!-- ===== LATERAL DE EVENTOS ===== -->
       <aside class="schedule-panel">
         <div class="schedule-header">
           <h2>Eventos em <span id="selected-date-display"></span></h2>
@@ -44,20 +51,23 @@
         <ul id="events-list" class="hours-list"></ul>
 
         <div class="buttons-group">
-  <button id="new-event-btn" class="primary">Adicionar Evento</button>
-  
-  <!-- ✅ Botão de voz animado -->
-  <button id="voice-event-btn" class="voice-btn">
-    🎤 <span id="voice-indicator" class="indicator"></span> Criar evento por voz
-  </button>
-</div>
+          <button id="new-event-btn" class="primary">Adicionar Evento</button>
 
-<p id="voice-status" class="voice-status">Clique no microfone e diga: “Reunião amanhã às 14 horas”</p>
+          <!-- Botão de voz animado -->
+          <button id="voice-event-btn" class="voice-btn">
+            <span id="voice-indicator" class="indicator"></span> Criar evento por voz
+          </button>
+        </div>
+
+        <p id="voice-status" class="voice-status">
+          "Clique no microfone para agendar seu evento”
+        </p>
       </aside>
+      <!-- ================================ -->
     </main>
   </div>
 
-  <!-- Modal -->
+  <!-- ===== MODAL ===== -->
   <div id="modal" class="modal hidden">
     <div class="modal-card">
       <button id="close-modal-btn" class="close-btn" title="Fechar">&times;</button>
@@ -82,10 +92,8 @@
     </div>
   </div>
 
-  <!-- Alerta -->
+  <!-- ===== ALERTA E ÁUDIO ===== -->
   <div id="alert" class="alert hidden"></div>
-
-  <!-- Som de lembrete -->
   <audio id="alert-sound" src="https://actions.google.com/sounds/v1/alarms/alarm_clock.ogg"></audio>
 
   <script src="script.js"></script>

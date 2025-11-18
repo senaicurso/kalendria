@@ -56,7 +56,15 @@ function updateMonthHeader() {
 
 // RENDER CALENDÁRIO
 function renderCalendar() {
-  calendarGrid.innerHTML = "";
+  calendarGrid.innerHTML = `
+  <div class="weekday">Dom</div>
+  <div class="weekday">Seg</div>
+  <div class="weekday">Ter</div>
+  <div class="weekday">Qua</div>
+  <div class="weekday">Qui</div>
+  <div class="weekday">Sex</div>
+  <div class="weekday">Sáb</div>
+`;
 
   const year = currentViewDate.getFullYear();
   const month = currentViewDate.getMonth();
