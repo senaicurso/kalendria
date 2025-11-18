@@ -422,7 +422,7 @@ body {
 }
 
 
-
+/* --- Ajuste geral para tablets e celulares (até 819px) --- */
 @media (max-width: 819px) {
 
   html,
@@ -431,49 +431,40 @@ body {
   }
 
   .container {
-    grid-template-columns: 1fr;
-    /* painel desce */
+    display: flex;           /* substitui grid */
+    flex-direction: column;  /* empilha */
     gap: 20px;
   }
 
-  .schedule-panel {
+  .schedule-panel,
+  .calendar-container {
     width: 100%;
+  }
+
+  .schedule-panel {
     order: 2;
   }
 
-  .calendar-grid,
-  .weekday {
+  .calendar-container {
+    order: 1;
+  }
+
+  /* Não mexer nos weekdays — eles não são grid */
+  .calendar-grid {
     padding: 10px;
+    grid-template-columns: repeat(7, 1fr); /* mantém formato do calendário */
   }
 }
 
 /* --- Celulares grandes (até 600px) --- */
-
 @media(max-width: 600px) {
   .calendar-header.inside {
     font-size: 1rem;
     grid-template-columns: 30px 1fr 30px;
   }
-}
-
-
-@media (max-width: 600px) {
-
-  .topbar h1 {
-    font-size: 0.95rem;
-  }
 
   .weekday {
-    grid-template-columns: repeat(4, 1fr);
-    /* quebra a linha */
-    gap: 6px;
     font-size: 0.8rem;
-  }
-
-  .calendar-grid {
-    grid-template-columns: repeat(4, 1fr);
-    gap: 8px;
-    padding: 10px;
   }
 
   .day {
@@ -504,12 +495,11 @@ body {
 @media (max-width: 420px) {
 
   .weekday {
-    grid-template-columns: repeat(3, 1fr);
     font-size: 0.75rem;
   }
 
   .calendar-grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(7, 1fr); /* mantém */
   }
 
   .day {
